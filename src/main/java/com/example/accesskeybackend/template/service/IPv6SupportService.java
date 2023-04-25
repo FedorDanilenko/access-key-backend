@@ -10,6 +10,7 @@ public class IPv6SupportService {
     private final Pattern URL_PATTERN = Pattern.compile("^https?://.*");
 
     public boolean checkIpv6Support(String siteUrl) {
+        if (siteUrl == null) throw new IllegalArgumentException("URL cannot be null");
         if (!URL_PATTERN.matcher(siteUrl).matches()) {
             siteUrl = "http://" + siteUrl;
         }
